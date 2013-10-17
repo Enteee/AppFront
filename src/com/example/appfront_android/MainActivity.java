@@ -2,8 +2,9 @@ package com.example.appfront_android;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
-public class MainActivity extends BluetoothSearchActivity{
+public class MainActivity extends Wifip2pSearchActivity{
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,5 +30,11 @@ public class MainActivity extends BluetoothSearchActivity{
 		if(tag.length()>0){
 			startSearch(tag);
 		}
+	}
+
+	@Override
+	protected void toogleCheck(boolean enable) {
+		final CheckBox chkFound 		= (CheckBox)findViewById(R.id.chkFound);
+		chkFound.setChecked(enable);
 	}
 }
