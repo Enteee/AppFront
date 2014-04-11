@@ -1,0 +1,3 @@
+[submodule "AppFront_Server/vendor/spring-data-elasticsearch"]
+	path = AppFront_Server/vendor/spring-data-elasticsearch
+	url = git@github.com:spring-projects/spring-data-elasticsearch.git
