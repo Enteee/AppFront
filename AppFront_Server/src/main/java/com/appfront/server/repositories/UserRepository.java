@@ -9,5 +9,16 @@ import com.appfront.server.resources.User;
  * 
  * @author ente
  */
-public interface UserRepository extends PagingAndSortingRepository<User, Long> {
+public interface UserRepository extends PagingAndSortingRepository<User, String> {
+    
+    /**
+     * Finds a user by it's id and secret
+     * 
+     * @param id
+     *            the users id
+     * @param secret
+     *            the users secret
+     * @return the user found
+     */
+    User findByIdAndSecret(String id, String secret);
 }

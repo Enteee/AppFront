@@ -9,5 +9,14 @@ import com.appfront.server.resources.Tag;
  * 
  * @author ente
  */
-public interface TagRepository extends PagingAndSortingRepository<Tag, Long> {
+public interface TagRepository extends PagingAndSortingRepository<Tag, String> {
+    
+    /**
+     * Get a tag
+     * 
+     * @param tag
+     *            the tag to get
+     * @return the tag
+     */
+    Tag findByTag(String tag);
 }

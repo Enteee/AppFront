@@ -1,19 +1,25 @@
 package com.appfront.server.tag;
 
 import java.util.ArrayList;
-
-import org.springframework.hateoas.ResourceSupport;
+import java.util.Iterator;
 
 import com.appfront.server.resources.Tag;
 
 /**
- * A tag list.
+ * A immutable list of tags tags.
  * 
  * @author ente
  */
-public class TagList extends ResourceSupport {
+public class TagList implements Iterable<Tag> {
     
     private final ArrayList<Tag> tags = new ArrayList<Tag>();
+    
+    /**
+     * Constructor of an empty TagList
+     */
+    public TagList() {
+        // do nothing
+    }
     
     /**
      * Constructor of TagList.
@@ -27,12 +33,8 @@ public class TagList extends ResourceSupport {
         }
     }
     
-    /**
-     * Get the tags
-     * 
-     * @return tags
-     */
-    public ArrayList<Tag> getTags() {
-        return tags;
+    @Override
+    public Iterator<Tag> iterator() {
+        return ((TagList) tags.clone()).iterator();
     }
 }
