@@ -1,8 +1,10 @@
 package com.appfront.server.tag;
 
-import java.util.Map;
+import java.util.ArrayList;
 
 import org.springframework.hateoas.ResourceSupport;
+
+import com.appfront.server.resources.Tag;
 
 /**
  * A tag list.
@@ -11,16 +13,18 @@ import org.springframework.hateoas.ResourceSupport;
  */
 public class TagList extends ResourceSupport {
     
-    private final Map<Integer, String> tags;
+    private final ArrayList<Tag> tags = new ArrayList<Tag>();
     
     /**
      * Constructor of TagList.
      * 
-     * @param setTags
-     *            the tags to hold
+     * @param tagsIterator
+     *            add all tags from iterator to the tags list
      */
-    public TagList(final Map<Integer, String> setTags) {
-        tags = setTags;
+    public TagList(final Iterable<Tag> tagsIterator) {
+        for (Tag tag : tagsIterator) {
+            this.tags.add(tag);
+        }
     }
     
     /**
@@ -28,7 +32,7 @@ public class TagList extends ResourceSupport {
      * 
      * @return tags
      */
-    public Map<Integer, String> getTags() {
+    public ArrayList<Tag> getTags() {
         return tags;
     }
 }
