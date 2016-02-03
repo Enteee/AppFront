@@ -16,7 +16,11 @@ function usage {
             <CONTENT_TYPE>       : The HTTP-Content type
             <URL>                : The URL to query
         optional Arguments:
+<<<<<<< HEAD
             [DATA]               : File containing the HTTP-Data
+=======
+            [DATA]               : The HTTP-Data
+>>>>>>> 2100ef44a449a07da0d5ad008abf8b1211c0fb42
 EOF
     exit -1
 }
@@ -31,5 +35,9 @@ fi
 curl \
 -X "${METHOD}" \
 -H "Content-Type:${CONTENT_TYPE}" \
+<<<<<<< HEAD
 -d "@${DATA}" \
+=======
+-d "${DATA}" \
+>>>>>>> 2100ef44a449a07da0d5ad008abf8b1211c0fb42
 "${URL}"
